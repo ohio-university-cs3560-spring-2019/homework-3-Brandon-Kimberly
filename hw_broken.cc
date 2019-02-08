@@ -2,6 +2,8 @@
 #include <vector>
 #include <cmath>
 
+//TODO Revert changes to function params.
+
 double deviation( std::vector<int> a, int n);
 
 int main()
@@ -18,19 +20,20 @@ int main()
 
 double deviation( std::vector<int> a, int n )
 {
-	int sum;
+	int sum = 0;
 	for(size_t i = 0; i < n; i++)
 	{
 		sum += a[i];
 	} 
-	double mean = sum /= n;
+	double mean = sum;
+	mean /= n;
 	double stddev = 0;
 	for(size_t i = 0; i < n; i++)
 	{
 		stddev = stddev + (a[i] - mean) * (a[i] - mean); 
 	}
 	stddev /= n;
-	if ( abs(stddev) < 0.01)
+	if ( stddev < 0.001)
 		std::cout << "Sigma is zero." << std::endl;
 	return sqrt(stddev);
 }
