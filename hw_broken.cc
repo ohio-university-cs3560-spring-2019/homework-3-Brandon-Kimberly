@@ -2,7 +2,7 @@
 #include <vector>
 #include <cmath>
 
-int deviation( int* a, int n);
+double deviation( std::vector<int> a, int n);
 
 int main()
 {
@@ -11,25 +11,25 @@ int main()
 	while( _10 >= 0 )
 	{
 		v.push_back(_10);
-		std::cout << deviation(v) << std::endl;
-		_10 - 1;
+		std::cout << deviation(v, v.size()) << std::endl;
+		_10--;
 	}
 }
 
-double deviation( int* a, int n )
+double deviation( std::vector<int> a, int n )
 {
 	int sum;
-	for(size_t i = 0; i <= v.size(); i++)
+	for(size_t i = 0; i < n; i++)
 	{
-		sum += v[i];
+		sum += a[i];
 	} 
-	double mean = sum /= v.size();
+	double mean = sum /= n;
 	double stddev = 0;
-	for(size_t i = 0; i <= v.size() -1; i++)
+	for(size_t i = 0; i < n; i++)
 	{
-		stddev = stddev + (v[i] - mean) * (v[i] - mean); 
+		stddev = stddev + (a[i] - mean) * (a[i] - mean); 
 	}
-	stddev /= v.size();
+	stddev /= n;
 	if( stddev == 0)
 		std::cout << "Sigma is zero." << std::endl;
 	return sqrt(stddev);
