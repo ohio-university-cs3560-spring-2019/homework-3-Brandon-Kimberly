@@ -30,7 +30,7 @@ double deviation( std::vector<int> a, int n )
 		stddev = stddev + (a[i] - mean) * (a[i] - mean); 
 	}
 	stddev /= n;
-	if( stddev == 0)
+	if ( abs(stddev) < 0.01)
 		std::cout << "Sigma is zero." << std::endl;
 	return sqrt(stddev);
 }
