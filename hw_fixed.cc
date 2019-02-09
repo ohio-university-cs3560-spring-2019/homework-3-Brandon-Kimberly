@@ -5,10 +5,10 @@
 /** \file */
 
 double deviation( int* a, int n);
-/*
-* \brief Calculates the standard deviation of a vector of ints.
-* \param Pointer to the start of a vector, int containing size of vector.
-* \return Double value containing the standard deviation.
+/*!
+	* \brief Calculates the standard deviation of a vector of ints.
+	* \param Pointer to the start of a vector, int containing size of vector.
+	* \return Double value containing the standard deviation.
 */
 
 int main()
