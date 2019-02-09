@@ -1,0 +1,16 @@
+\documentclass[11pt, letterpaper]{report}
+\usepackage{amsmath}
+
+\begin{document}
+\title{Description of The Standard Deviation Function}
+\maketitle
+\noindent The function takes two parameters:
+\begin{enumerate}
+    \item The first is of type 'int pointer' and points to the memory address storing the first value in a vector of ints.
+    \item The second is of type 'int' and holds the current size of the vector.
+\end{enumerate}
+After receiving these values the function calculates the standard deviation of the numbers in the vector using the following formula:\\
+\begin{equation*}
+    \sigma = \sqrt{\frac{\sum (x_i - \mu)^2}{n}}
+\end{equation*}
+\end{document}
