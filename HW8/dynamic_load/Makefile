@@ -1,10 +1,16 @@
-second : main2.o libstddev.so
+second: main2.o stddev.o libstddev.so
 
-main2.o : main2.cc
-	g++ -fpermissive -ldl -g main2.cc
-
-libstddev.so : stddev.cc stddev.h
+stddev.o: stddev.cc stddev.h
 	g++ -fpic -c stddev.cc
-	g++ -shared -Wl,-soname,libstddev.so.1 -o libstddev.so stddev.o
-	ln -sf libstddev.so libstddev.so.1
-	ln -sf libstddev.so.1 libstddev.so
+
+libdev.so.1: libdev.so.1.0
+	ln -sf libdev.so.1.0 libdev.so.1
+
+libdev.so.1.0: stddev.o
+	g++ -shared -Wl,-soname,libdev.so.1 -o libdev.so.1.0 stddev.o
+
+libstddev.so: libdev.so.1
+	ln -sf libdev.so.1 libstddev.so
+
+main2.o: main2.cc
+	g++ -ldl -fpermissive main2.cc
